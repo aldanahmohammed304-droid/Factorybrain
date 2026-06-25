@@ -692,4 +692,8 @@ if __name__ == "__main__":
     print(f"  Admin login : {Config.ADMIN_EMAIL} / {Config.ADMIN_PASSWORD}")
     print(f"  AI (GPT-4o) : {'ENABLED' if ai_status()['ready'] else 'NOT CONFIGURED (set OPENAI_API_KEY in .env)'}")
     print("=" * 60)
-    app.run(debug=True, port=5000)
+app.run(
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 5000)),
+    debug=False
+)
